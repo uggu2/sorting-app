@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Sorting Application</title>
+</head>
+<body>
+<h4>Please choose txt file for input:</h4>
+
+<form action="/" enctype="multipart/form-data" method="post">
+    <div>
+        <table>
+            <tr>
+                <input type="file" name="file"/>
+                <input type="submit" name="action" value="Submit"/>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <ul>
+            <li th:each="file : ${files}">
+                <a th:href="${file}" th:text="${file}"/>
+            </li>
+        </ul>
+    </div>
+</form>
+<form action="/" object="${AlgorithmType}" method="post">
+    <h4>Please choose an algorithm and click sort:</h4>
+    <div class="col-lg-3">
+        <select name="algorithmType" id="algorithmType">
+            <option th:each="AlgorithmType : ${T(com.test.uniquex.sortingapp.algorithm.AlgorithmType).values()}"
+                    th:value="${AlgorithmType}"
+                    th:text="${AlgorithmType}">
+            </option>
+        </select>
+    </div>
+    <button type="submit" th:name="action" th:value="sort">Sort</button>
+</form>
+
+<h4>Results:</h4>
+
+<table border="1" class="table table-striped table-responsive-md">
+    <thead>
+    <tr>
+        <th>Student</th>
+        <th>Grade</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student: ${sortedStudents}">
+        <td th:text="${student.key}"></td>
+        <td th:text="${student.value}"></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+
+</html>
