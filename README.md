@@ -5,7 +5,7 @@ I focused on setting up the design and main bones of the system.
 To test the app, 
 1. run SortingApplication.java
 2. head to localhost:8080
-3. select input file and click submit.
+3. select input file and click submit. (example in resources\inputExample\example.txt)
 4. there is a dropdown of possible algorithms to choose from. (although the implementation is missing)
 5. hitting sort should update the empty results table to input data.
 
